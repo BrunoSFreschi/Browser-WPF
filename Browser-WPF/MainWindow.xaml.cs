@@ -1,24 +1,29 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
-namespace Browser_WPF
+namespace Browser_WPF;
+
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
+        InitializeComponent();
+
+        InicializarWebView();
+    }
+
+    private async void InicializarWebView()
+    {
+        try
         {
-            InitializeComponent();
+            await MeuNavegador.EnsureCoreWebView2Async(null);
+
+            MeuNavegador.CoreWebView2.Navigate(Url.Text);
+
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erro ao inicializar WebView2: {ex.Message}\n\nCertifique-se de que o WebView2 Runtime está instalado.");
         }
     }
+
 }
