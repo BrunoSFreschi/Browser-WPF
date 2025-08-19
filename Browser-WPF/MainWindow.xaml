@@ -3,10 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Browser_WPF"
+        xmlns:local="clr-namespace:Browser_WPF" 
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Browser" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        UseLayoutRounding="True">
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" x:Name="UrlRow"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center"
+                    Margin="11" x:Name="TopBar">
+            <TextBox Name="Url" Width="200" Height="30" TextAlignment="Center"
+                     Text="https://www.google.com" 
+                     KeyDown="Url_KeyDown"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"
+                     FontSize="12"
+                     Padding="8,5"/>
+        </StackPanel>
+
+        <wv2:WebView2 Name="MeuNavegador" Grid.Row="1" Margin="0,0,0,0"/>
     </Grid>
 </Window>
