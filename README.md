@@ -104,7 +104,7 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 ## Autor
 
-Seu Nome - [Bruno](https://github.com/BrunoSFreschi)
+[Bruno](https://github.com/BrunoSFreschi)
 
 Link do Projeto: [link rapido](https://github.com/BrunoSFreschi/browser-wpf)
 
