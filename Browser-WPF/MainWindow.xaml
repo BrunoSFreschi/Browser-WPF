@@ -10,9 +10,41 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
-        UseLayoutRounding="True">
+        UseLayoutRounding="True"
+        KeyDown="Window_KeyDown"
+        Focusable="True">
 
-    <Grid>
+    <Window.Resources>
+        <!-- Recursos para Tema Claro -->
+        <SolidColorBrush x:Key="BackgroundBrushLight" Color="#F0F0F0"/>
+        <SolidColorBrush x:Key="ForegroundBrushLight" Color="#000000"/>
+        <SolidColorBrush x:Key="TextBoxBackgroundLight" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="BorderBrushLight" Color="#CCCCCC"/>
+
+        <!-- Recursos para Tema Escuro -->
+        <SolidColorBrush x:Key="BackgroundBrushDark" Color="#2D2D30"/>
+        <SolidColorBrush x:Key="ForegroundBrushDark" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="TextBoxBackgroundDark" Color="#3C3C3C"/>
+        <SolidColorBrush x:Key="BorderBrushDark" Color="#555555"/>
+
+        <!-- Recursos Dinâmicos (serão alterados via código) -->
+        <SolidColorBrush x:Key="DynamicBackground" Color="#F0F0F0"/>
+        <SolidColorBrush x:Key="DynamicForeground" Color="#000000"/>
+        <SolidColorBrush x:Key="DynamicTextBoxBackground" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="DynamicBorder" Color="#CCCCCC"/>
+
+        <!-- Template customizado para TextBox -->
+        <ControlTemplate x:Key="RoundedTextBoxTemplate" TargetType="{x:Type TextBox}">
+            <Border CornerRadius="15" 
+                    Background="{DynamicResource DynamicTextBoxBackground}" 
+                    BorderThickness="1" 
+                    BorderBrush="{DynamicResource DynamicBorder}">
+                <ScrollViewer x:Name="PART_ContentHost" Margin="8,4"/>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid Background="{DynamicResource DynamicBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" x:Name="UrlRow"/>
             <RowDefinition Height="*"/>
@@ -22,11 +54,12 @@
                     Margin="11" x:Name="TopBar">
             <TextBox Name="Url" Width="200" Height="30" TextAlignment="Center"
                      Text="https://www.google.com" 
-                     KeyDown="Url_KeyDown"
+                     KeyDown="UrlEnter"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Center"
                      FontSize="12"
-                     Padding="8,5"/>
+                     Foreground="{DynamicResource DynamicForeground}"
+                     Template="{StaticResource RoundedTextBoxTemplate}" />
         </StackPanel>
 
         <wv2:WebView2 Name="MeuNavegador" Grid.Row="1" Margin="0,0,0,0"/>
