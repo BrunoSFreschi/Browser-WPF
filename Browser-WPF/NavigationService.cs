@@ -1,7 +1,7 @@
 ﻿using Microsoft.Web.WebView2.Wpf;
 using System.Windows;
 
-namespace Browser_WPF.Services;
+namespace Browser_WPF;
 
 public static class NavigationService
 {
@@ -50,7 +50,7 @@ public static class NavigationService
         }
 
         // Se parece com uma URL (contém ponto), adiciona https
-        if (endereco.Contains(".") && !endereco.Contains(" "))
+        if (endereco.Contains('.') && !endereco.Contains(' '))
         {
             return "https://" + endereco;
         }
