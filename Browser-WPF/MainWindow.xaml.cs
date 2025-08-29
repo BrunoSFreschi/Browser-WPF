@@ -1,5 +1,4 @@
-﻿using Browser_WPF.Services; // Adicione este using
-using Microsoft.Web.WebView2.Core;
+﻿using Microsoft.Web.WebView2.Core;
 using Microsoft.Win32;
 using System.Management;
 using System.Windows;
