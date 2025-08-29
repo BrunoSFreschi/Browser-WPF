@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:Browser_WPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
+        <ControlTemplate x:Key="RoundedTextBoxTemplate" TargetType="{x:Type TextBox}">
+            <Border CornerRadius="5" 
+                    Background="{DynamicResource DynamicTextBoxBackground}" 
+                    BorderThickness="1" 
+                    BorderBrush="{DynamicResource DynamicBorder}">
+                <ScrollViewer x:Name="PART_ContentHost" Margin="8,4"/>
+            </Border>
+        </ControlTemplate>
+        
     </Application.Resources>
 </Application>
