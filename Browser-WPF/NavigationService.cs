@@ -113,6 +113,18 @@ public static class NavigationService
         }
     }
 
+    public static void UrlFocus(WebView2 webView)
+    {
+        try
+        {
+            webView?.Focus();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erro ao focar: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
     /// <summary>
     /// Para o carregamento da página atual
     /// </summary>
