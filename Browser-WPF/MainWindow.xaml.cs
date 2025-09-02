@@ -73,6 +73,12 @@ public partial class MainWindow : Window
             e.Handled = true;
         }
 
+        if (e.Key == Key.L && Keyboard.Modifiers == ModifierKeys.Control)
+        {
+            NavigationService.Focar(MeuNavegador);
+            e.Handled = true;
+        }
+
         // Alt + Left para voltar
         if (e.Key == Key.Left && Keyboard.Modifiers == ModifierKeys.Alt)
         {
