@@ -1,3 +1,7 @@
+<img width="1365" height="726" alt="image" src="https://github.com/user-attachments/assets/067adbc9-6182-4e4b-96b5-f8138b97ed6a" />
+
+
+
 # Browser-WPF
 
 ## Descrição
